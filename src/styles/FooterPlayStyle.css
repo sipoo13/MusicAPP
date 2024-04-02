@@ -1,0 +1,15 @@
+.icon {
+    color: #b2b2b2;
+}
+
+.icon:hover {
+    color: white;
+}
+
+.clickedIcon {
+    color: #e11d48;
+}
+
+.clickedIcon:hover {
+    color: white;
+}

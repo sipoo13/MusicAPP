@@ -1,0 +1,736 @@
+{
+  level: 'info',
+  message: 'Server start on 3666 port.',
+  metadata: { timestamp: '2024-03-30T09:31:24.711Z' }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /registration',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:31:28.666Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 500 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '65',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 81,
+    timestamp: '2024-03-30T09:31:28.750Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /registration',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:32:18.400Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 500 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '65',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 58,
+    timestamp: '2024-03-30T09:32:18.460Z'
+  }
+}
+{
+  level: 'info',
+  message: 'Server start on 3666 port.',
+  metadata: { timestamp: '2024-03-30T09:33:43.103Z' }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /registration',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 1,
+    timestamp: '2024-03-30T09:33:50.383Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 200 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '65',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 120,
+    timestamp: '2024-03-30T09:33:50.506Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /registration',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:37:58.233Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 200 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '82',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 61,
+    timestamp: '2024-03-30T09:37:58.296Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /login',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:40:13.556Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP POST /login',
+  metadata: {
+    res: { statusCode: 401 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 4,
+    timestamp: '2024-03-30T09:40:13.561Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /login',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:48:10.141Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP POST /login',
+  metadata: {
+    res: { statusCode: 401 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 1,
+    timestamp: '2024-03-30T09:48:10.144Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP POST /login',
+  metadata: {
+    res: { statusCode: 401 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 2,
+    timestamp: '2024-03-30T09:48:11.172Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP POST /login',
+  metadata: {
+    res: { statusCode: 401 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 2,
+    timestamp: '2024-03-30T09:48:11.759Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /registration',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:49:24.089Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 200 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '78',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 66,
+    timestamp: '2024-03-30T09:49:24.157Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /login',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:49:29.520Z'
+  }
+}
+{
+  level: 'warn',
+  message: 'HTTP POST /login',
+  metadata: {
+    res: { statusCode: 401 },
+    req: {
+      url: '/login',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/login',
+      query: {}
+    },
+    responseTime: 1,
+    timestamp: '2024-03-30T09:49:29.523Z'
+  }
+}
+{
+  level: 'info',
+  message: 'HTTP OPTIONS /registration',
+  metadata: {
+    res: { statusCode: 204 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        accept: '*/*',
+        'access-control-request-method': 'POST',
+        'access-control-request-headers': 'content-type',
+        origin: 'http://localhost:3000',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'OPTIONS',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 0,
+    timestamp: '2024-03-30T09:52:19.913Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 500 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 60,
+    timestamp: '2024-03-30T09:52:19.975Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 500 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 60,
+    timestamp: '2024-03-30T09:52:21.097Z'
+  }
+}
+{
+  level: 'error',
+  message: 'HTTP POST /registration',
+  metadata: {
+    res: { statusCode: 500 },
+    req: {
+      url: '/registration',
+      headers: {
+        host: 'localhost:3666',
+        connection: 'keep-alive',
+        'content-length': '26',
+        'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+        accept: 'application/json, text/plain, */*',
+        'content-type': 'application/json',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        origin: 'http://localhost:3000',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://localhost:3000/',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/registration',
+      query: {}
+    },
+    responseTime: 60,
+    timestamp: '2024-03-30T09:52:21.755Z'
+  }
+}
+{
+  level: 'info',
+  message: 'Server start on 3666 port.',
+  metadata: { timestamp: '2024-03-30T09:53:19.074Z' }
+}
