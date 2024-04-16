@@ -13,9 +13,7 @@ interface AuthProviderProps {
 
 const defaultState = {
   isRegistered: false,
-  setIsRegistered: () => {},
   isAuth: false,
-  setIsAuth: () => {},
 } as AuthContextProps;
 
 export const AuthContext = createContext(defaultState);

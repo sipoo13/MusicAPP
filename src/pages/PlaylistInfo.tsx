@@ -12,7 +12,7 @@ export default function PlaylistInfo() {
         ></img>
         <div className="absolute top-[18%] left-[2%] flex items-end">
           <img
-            src="https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg"
+            src="http://localhost:3666/user_images/image_1712177922163-931012064.png"
             className="w-[234px] h-[234px] rounded-md"
           ></img>
           <div className="ml-6">

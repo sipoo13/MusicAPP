@@ -5,6 +5,7 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { AuthProvider } from "./context/AuthContext";
+import { AudioContextProvider } from "./context/AudioContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <App />
+      <AudioContextProvider>
+        <App />
+      </AudioContextProvider>
     </AuthProvider>
   </React.StrictMode>
 );

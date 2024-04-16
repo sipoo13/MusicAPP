@@ -23,6 +23,8 @@ const AuthForm = () => {
       console.log(response);
       if (response && response.status === 200) {
         setIsAuth(true);
+        localStorage.setItem('userId', response.data.id_user);
+        console.log(response.data.id_user);
       }
       if (response && response.status === 401) {
         setError(response.data.error);
