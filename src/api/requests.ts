@@ -1,5 +1,5 @@
 import axios from "axios";
-import { RegisterUser, AuthUser, User, Track } from "../types/types";
+import { RegisterUser, AuthUser, User, Track, Deviation } from "../types/types";
 
 const BASE_API_URL = 'http://localhost:3666';
 
@@ -15,8 +15,33 @@ export const get_users = async () => {
     return res;
 }
 
-export const get_favourite_tracks = async (id: string | undefined) => {
-    const res = await axios.get(`/favourite_tracks/${id}`);
+export const get_tracks = async () => {
+    const res = await axios.get('/tracks');
+    return res;
+}
+
+export const get_deviation_tracks = async (id: string | undefined) => {
+    const res = await axios.get(`/deviation_tracks/${id}`);
+    return res;
+}
+
+export const get_tracks_with_favorite = async (id:number) => {
+    const res = await axios.get(`/tracks_with_favorite/${id}`);
+    return res;
+}
+
+export const get_moderated_tracks = async () => {
+    const res = await axios.get('/moderated_tracks');
+    return res;
+}
+
+export const deviation = async (deviationData: Deviation) => {
+    const res = await axios.post('/deviation', deviationData);
+    return res;
+}
+
+export const get_favorite_tracks = async (id: string | undefined) => {
+    const res = await axios.get(`/favorite_tracks/${id}`);
     return res;
 }
 

@@ -1,21 +1,21 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import Song from "../components/Song";
-import Playlist from "../components/Playlist";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Camera } from "lucide-react";
-import UploadButton from "../components/UploadButton";
 import UserPlaylist from "../components/UserPlaylist";
 import { get_user, get_user_tracks } from "../api/requests";
 import { Track, User } from "../types/types";
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
 
 export default function UserCardProfile() {
   const { id } = useParams();
-  const userID = parseInt(localStorage.getItem("userId") || "");
+  const { authUser } = useContext(AuthContext);
+  const userID = authUser?.id_user;
   const [headerFile, setHeaderFile] = useState<File | null>(null);
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatar, setAvatar] = useState("");
   const [header, setHeader] = useState("");
+  const [isLong, setIsLong] = useState(false);
   const [userSingles, setUserSingles] = useState<Track[]>([]);
   const [user, setUser] = useState<User>();
   const [isMyProfile, setIsMyProfile] = useState(false);
@@ -44,7 +44,10 @@ export default function UserCardProfile() {
                   setHeader(response.data.header.header);
                 }
               } catch (error) {
-                console.error("An error occurred while updating the header:", error);
+                console.error(
+                  "An error occurred while updating the header:",
+                  error
+                );
               }
             }
           });
@@ -53,6 +56,8 @@ export default function UserCardProfile() {
       }
     }
   };
+
+  const maxLength = 14;
 
   const handleAvatarChange = async (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -78,7 +83,10 @@ export default function UserCardProfile() {
                   setAvatar(response.data.avatar.avatar);
                 }
               } catch (error) {
-                console.error("An error occurred while updating the header:", error);
+                console.error(
+                  "An error occurred while updating the header:",
+                  error
+                );
               }
             }
           });
@@ -88,11 +96,23 @@ export default function UserCardProfile() {
     }
   };
 
-  useEffect(() => {
+  const handleDeleteTrack = async (id: number) => {
+    await axios.delete(`http://localhost:3666/track/${id}`).then((res) => {
+      if (res.status == 200) {
+        fetchUserTracks();
+      }
+    });
+  };
+
+  const fetchUserTracks = async () => {
     get_user_tracks(id).then((res) => {
       setUserSingles(res?.data);
       console.log(res?.data);
     });
+  };
+
+  useEffect(() => {
+    fetchUserTracks();
 
     get_user(id).then((res) => {
       if (res.status === 200) {
@@ -109,18 +129,20 @@ export default function UserCardProfile() {
     } else {
       setIsMyProfile(false);
     }
-  }, [user]);
 
+    if (user != undefined) {
+      if (user?.Alias.length > maxLength) {
+        setIsLong(true);
+      }
+    }
+  }, [user]);
 
   return (
     <div className="max-w-6xl m-auto">
       <div className="relative mt-4">
         {isMyProfile ? (
           <div>
-            <img
-              src={header}
-              className="w-full h-[316px] rounded-t-lg"
-            ></img>
+            <img src={header} className="w-full h-[316px] rounded-t-lg"></img>
             <label className="absolute text-black bg-[#efe3e2] hover:bg-[#ffffff] px-4 top-[8%] right-[3%] rounded-sm">
               <div className="flex items-center">
                 <Camera className="w-4 h-4" />
@@ -135,10 +157,7 @@ export default function UserCardProfile() {
             </label>
           </div>
         ) : (
-          <img
-            src={header}
-            className="w-full h-[316px] rounded-t-lg"
-          ></img>
+          <img src={header} className="w-full h-[316px] rounded-t-lg"></img>
         )}
 
         <div className="absolute top-[18%] left-[2%] flex items-center">
@@ -170,30 +189,23 @@ export default function UserCardProfile() {
             )}
           </div>
           <div className="ml-6">
-            <p className="text-white text-8xl py-4 bg-black font-bold select-none">
-              {user?.Alias}
-            </p>
+            {isLong ? (
+              <p className="text-white text-4xl py-4 bg-black font-bold select-none">
+                {user?.Alias}
+              </p>
+            ) : (
+              <p className="text-white text-8xl py-4 bg-black font-bold select-none">
+                {user?.Alias}
+              </p>
+            )}
           </div>
         </div>
       </div>
-      {/* <div className="mt-4">
-        <p className="text-white text-2xl font-semibold">Популярные треки</p>
-        <div className="grid grid-cols-2 grid-rows-5 gap-x-6 mt-3">
-          <Song />
-          <Song />
-          <Song />
-          <Song />
-          <Song />
-          <Song />
-          <Song />
-          <Song />
-          <Song />
-          <Song />
-        </div>
-      </div> */}
       <div className="mt-4 mb-48">
         <div className="flex justify-between items-center">
-          <p className="text-white font-semibold text-2xl">Музыка</p>
+          <p className="text-white font-semibold text-2xl select-none">
+            Музыка
+          </p>
           <Link to={`/user_music/${id}`}>
             <p className="font-semibold text-[#b3b3b3] text-sm select-none hover:underline">
               Показать все
@@ -204,7 +216,14 @@ export default function UserCardProfile() {
           {userSingles.length > 0 ? (
             userSingles.map((track, index) => {
               if (index <= 4)
-                return <UserPlaylist key={track.ID_Track} track={track} />;
+                return (
+                  <UserPlaylist
+                    key={track.ID_Track}
+                    track={track}
+                    onDeleteTrack={handleDeleteTrack}
+                    isMyMusic={isMyProfile}
+                  ></UserPlaylist>
+                );
             })
           ) : (
             <p className="text-center text-white font-semibold text-xl my-4">
@@ -214,11 +233,33 @@ export default function UserCardProfile() {
         </div>
         <div className="mt-3">
           {isMyProfile ? (
-            <Link to="/add_music">
-              <button className="text-white bg-[#e11d48] py-2 px-2 rounded-sm">
-                Добавить музыку
-              </button>
-            </Link>
+            <div className="mt-6">
+              <p className="text-white font-semibold text-2xl select-none">
+                Панель исполнителя
+              </p>
+              <div className="flex justify-between mt-4 w-[500px]">
+                <Link to="/add_music">
+                  <button
+                    className="text-black hover:bg-[#e2e2e2] font-sans font-semibold text-sm w-[150px] bg-white py-2 px-2 rounded-sm"
+                    style={{ display: "block" }}
+                  >
+                    Добавить музыку
+                  </button>
+                </Link>
+                <br />
+                <Link to={`/profile_edit/${id}`}>
+                  <button className="text-black hover:bg-[#e2e2e2] font-sans font-semibold text-sm w-[150px] bg-white py-2 px-2 rounded-sm block">
+                    Изменить профиль
+                  </button>
+                </Link>
+                <br />
+                <Link to={`/deviations/${id}`}>
+                  <button className="text-black hover:bg-[#e2e2e2] font-sans font-semibold text-sm w-[150px] bg-white py-2 px-2 rounded-sm">
+                    Посмотреть отказы
+                  </button>
+                </Link>
+              </div>
+            </div>
           ) : null}
         </div>
       </div>

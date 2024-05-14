@@ -1,17 +1,19 @@
-import { Camera } from "lucide-react";
-import React, { ChangeEvent, useRef, useState } from "react";
+import { Camera, Music2, X } from "lucide-react";
+import React, { ChangeEvent, useContext, useState } from "react";
 import ComboBox from "./ComboBox";
 import axios from "axios";
-import { Track } from "../types/types";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export default function AddMusicForm() {
-  const userID = parseInt(localStorage.getItem("userId") || "");
+  const { authUser } = useContext(AuthContext);
   const [selectedCover, setSelectedCover] = useState<File | null>(null);
   const [selectedMusic, setSelectedMusic] = useState<File | null>(null);
   const [cover, setCover] = useState("");
   const [music, setMusic] = useState("");
+  const [duration, setDuration] = useState("");
   const [name, setName] = useState("");
+  const [musicName, setMusicName] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [musicUploadMsg, setMusicUploadMsg] = useState("");
   const [coverUploadMsg, setCoverUploadMsg] = useState("");
@@ -42,16 +44,36 @@ export default function AddMusicForm() {
     }
   };
 
+  if(authUser === undefined) {
+    return <Navigate to="/auth"/>
+  }
+
   const handleIndexChange = (index: number) => {
     setSelectedIndex(index + 1);
     console.log(selectedIndex);
   };
+
+  function shortenFilename(filename: string) {
+    if (filename.length > 20) {
+      const shortenedFilename =
+        filename.substring(0, 17) +
+        "..." +
+        filename.substring(filename.length - 7);
+      return shortenedFilename;
+    }
+    return filename;
+  }
 
   const handleMusicChange = async (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     const file = event.target.files?.[0];
     setSelectedMusic(file || null);
     if (file) {
+      if (file.type !== "audio/mpeg") {
+        console.error("Неверный формат файла. Пожалуйста, выберите MP3 файл.");
+        return;
+      }
+
       const formData = new FormData();
       formData.append("music", file);
       setMusicUploadMsg("Трек загружается...");
@@ -61,7 +83,9 @@ export default function AddMusicForm() {
           .then((response) => {
             if (response.status == 200) {
               setMusic(response.data.music);
-              console.log(music);
+              setDuration(response.data.duration);
+              const filename = response.data.name;
+              setMusicName(shortenFilename(filename));
               setMusicUploadMsg("Трек успешно загружен!");
             }
           });
@@ -74,13 +98,14 @@ export default function AddMusicForm() {
   const handleFileUpload = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (name && music && cover) {
-      const id = localStorage.getItem("userId");
+    if (name != "" && music != "" && cover != "") {
+      const id = authUser?.id_user;
       try {
         const trackData = {
           name: name,
           cover: cover,
           track: music,
+          duration: duration,
           genre_id: selectedIndex,
           user_id: id,
         };
@@ -103,7 +128,7 @@ export default function AddMusicForm() {
   };
 
   if (isSaved) {
-    return <Navigate to={`/profile/${userID}`} />;
+    return <Navigate to={`/profile/${authUser?.id_user}`} />;
   }
 
   return (
@@ -120,20 +145,18 @@ export default function AddMusicForm() {
                 ></img>
               )}
               {cover && <img src={cover} className="w-[262px] h-[262px]"></img>}
-              {!selectedCover && (
-                <label className="absolute text-black bg-[#efe3e2] hover:bg-[#ffffff] px-4 top-[80%] left-[18%] rounded-sm">
-                  <div className="flex items-center">
-                    <Camera className="w-4 h-4" />
-                    <p className="ml-2">Загрузить фото</p>
-                    <input
-                      type="file"
-                      className="hidden"
-                      onChange={handleCoverChange}
-                      accept="image/*"
-                    />
-                  </div>
-                </label>
-              )}
+              <label className="absolute text-black bg-[#efe3e2] hover:bg-[#ffffff] px-4 top-[80%] left-[18%] rounded-sm">
+                <div className="flex items-center">
+                  <Camera className="w-4 h-4" />
+                  <p className="ml-2">Загрузить фото</p>
+                  <input
+                    type="file"
+                    className="hidden"
+                    onChange={handleCoverChange}
+                    accept="image/*"
+                  />
+                </div>
+              </label>
               {selectedCover && (
                 <p className="absolute text-white font-semibold top-[80%] left-[22%]">
                   {coverUploadMsg}
@@ -155,20 +178,29 @@ export default function AddMusicForm() {
                 Загрузка трека:
               </p>
               {!selectedMusic && (
-                <label className="bg-white hover:bg-[#e2e2e2] text-black font-bold py-1 px-4 rounded inline-flex items-center justify-center w-full">
+                <label className="bg-white hover:bg-[#e2e2e2] text-black font-bold py-1 px-4 rounded-sm inline-flex items-center justify-center w-full">
                   <p className="text-center">Загрузить трек</p>
                   <input
                     type="file"
                     className="hidden"
                     onChange={handleMusicChange}
-                    accept="image/*"
+                    accept="audio/mpeg"
                   />
                 </label>
               )}
               {selectedMusic && (
-                <p className="text-white text-center font-bold">
-                  {musicUploadMsg}
-                </p>
+                <div className="flex items-center">
+                  <Music2 color="white" size={18}></Music2>
+                  <p className="text-white text-center font-bold ml-1">
+                    {musicName}
+                  </p>
+                  <button
+                  onClick={() => {
+                    setSelectedMusic(null);
+                    setMusic("");}}>
+                    <X color="white" size={24} className="ml-4"></X>
+                  </button>
+                </div>
               )}
               <button
                 type="submit"
@@ -181,7 +213,7 @@ export default function AddMusicForm() {
         </div>
       </form>
       {errorMsg ? (
-        <p className="text-[#e11d48] font-semibold text-center text-xl mt-3">
+        <p className="text-[#e11d48] font-semibold text-center text-xl mt-3 select-none">
           {errorMsg}
         </p>
       ) : null}

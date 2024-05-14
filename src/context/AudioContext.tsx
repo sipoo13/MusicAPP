@@ -1,22 +1,37 @@
-import React, { createContext, useRef, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode, SetStateAction, Dispatch } from "react";
 import { Track } from "../types/types";
 
 export interface AudioContextProps {
   isPause: boolean;
-  setIsPause: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsPause: Dispatch<SetStateAction<boolean>>;
+  isLiked: boolean;
+  setIsLiked: Dispatch<SetStateAction<boolean>>;
+  favoriteId: number;
+  setFavoriteId: Dispatch<SetStateAction<number>>;
+  trackList: Track[];
+  setTrackList: Dispatch<SetStateAction<Track[]>>;
   isPlaying: boolean;
-  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsPlaying: Dispatch<SetStateAction<boolean>>;
   currentSong: Track | undefined;
-  setCurrentSong: React.Dispatch<React.SetStateAction<Track | undefined>>;
+  setCurrentSong: Dispatch<SetStateAction<Track | undefined>>;
 }
 
-const defaultState = {
+const defaultState: AudioContextProps = {
   isPlaying: false,
   isPause: false,
+  isLiked: false,
+  favoriteId: -1,
+  trackList: [],
   currentSong: undefined,
-} as AudioContextProps;
+  setIsPause: () => {},
+  setIsLiked: () => {},
+  setFavoriteId: () => {},
+  setTrackList: () => {},
+  setIsPlaying: () => {},
+  setCurrentSong: () => {},
+};
 
-export const AudioContextik = createContext(defaultState);
+export const TrackContext = createContext(defaultState);
 
 interface AudioContextProviderProps {
   children: ReactNode;
@@ -25,13 +40,22 @@ interface AudioContextProviderProps {
 export const AudioContextProvider: React.FC<AudioContextProviderProps> = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPause, setIsPause] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [trackList, setTrackList] = useState<Track[]>([]);
+  const [favoriteId, setFavoriteId] = useState(-1);
   const [currentSong, setCurrentSong] = useState<Track | undefined>();
 
   return (
-    <AudioContextik.Provider
+    <TrackContext.Provider
       value={{
         isPlaying,
         setIsPlaying,
+        isLiked,
+        setIsLiked,
+        favoriteId,
+        setFavoriteId,
+        trackList,
+        setTrackList,
         isPause,
         setIsPause,
         currentSong,
@@ -39,6 +63,6 @@ export const AudioContextProvider: React.FC<AudioContextProviderProps> = ({ chil
       }}
     >
       {children}
-    </AudioContextik.Provider>
+    </TrackContext.Provider>
   );
 };

@@ -1,15 +1,21 @@
 import React, { useContext, useState } from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { AuthUser } from "../types/types";
 import { auth } from "../api/requests";
 import { AuthContext } from "../context/AuthContext";
 
 const AuthForm = () => {
+  const navigate = useNavigate();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuth, setIsAuth, isRegistered, setIsRegistered } =
-    useContext(AuthContext);
-  const [error, setError] = useState("");
+  const {
+    isAuth,
+    setIsAuth,
+    isRegistered,
+    setIsRegistered,
+    setAuthUser,
+  } = useContext(AuthContext);
+  const [errorText, setErrorText] = useState("");
 
   const handleAuth = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,17 +29,17 @@ const AuthForm = () => {
       console.log(response);
       if (response && response.status === 200) {
         setIsAuth(true);
-        localStorage.setItem('userId', response.data.id_user);
-        console.log(response.data.id_user);
-      }
-      if (response && response.status === 401) {
-        setError(response.data.error);
-        setIsRegistered(false);
-        console.log(error);
+        setAuthUser(response.data);
       }
     } catch (error) {
-      console.error("Ошибка во время авторизации:", error);
+      setErrorText("Неверный логин или пароль");
+      setIsRegistered(false);
     }
+  };
+
+  const handleRegClick = () => {
+    setIsRegistered(false);
+    navigate(`/reg`);
   };
 
   if (isAuth) {
@@ -43,14 +49,19 @@ const AuthForm = () => {
   return (
     <div className="mt-12">
       <h1 className="font-semibold text-center text-4xl text-white">Вход</h1>
+      <p className="text-center my-2 font-semibold text-[#919496]">
+        Войдите, чтобы получить доступ к своей музыке
+      </p>
       {isRegistered ? (
         <p className="text-[#e11d48] text-center font-semibold my-2">
           Вы успешно зарегистрировались!
         </p>
       ) : null}
-      <p className="text-center my-2 font-semibold text-[#919496]">
-        Войдите, чтобы получить доступ к своей музыке
-      </p>
+      {errorText && (
+        <p className="text-center my-2 font-semibold text-red-500 select-none">
+          {errorText}
+        </p>
+      )}
       <form onSubmit={handleAuth}>
         <p className="font-semibold mb-1 text-[#919496]">Логин</p>
         <input
@@ -76,14 +87,17 @@ const AuthForm = () => {
         ></input>
         <p className="font-semibold text-white text-center my-4">
           Нет аккаунта?{" "}
-          <Link to="/reg" className="text-[#e11d48] hover:underline">
+          <button
+            className="text-[#e11d48] hover:underline"
+            onClick={handleRegClick}
+          >
             Зарегистрироваться
-          </Link>
+          </button>
         </p>
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-white hover:bg-[#919496] text-black font-bold py-2 w-[360px] px-4 rounded inline-flex items-center justify-center"
+            className="bg-white hover:bg-[#e2e2e2] text-black font-bold py-2 w-[360px] px-4 rounded inline-flex items-center justify-center"
           >
             Войти
           </button>

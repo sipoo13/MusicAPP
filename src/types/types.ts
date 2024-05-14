@@ -21,14 +21,30 @@ export interface User {
     Role_ID: number;
 }
 
+export interface Deviation {
+    reason: string;
+    track_id: number;
+}
+
 export interface Track {
     ID_Track: number;
     Track_Name: string;
     Track_Cover: string;
     Track_Audio: string;
+    Track_Duration: string;
     Genre_ID: number;
+    Genre_Name: string;
     User_ID: number;
     Alias: string;
+    ID_Favorite_Track: number;
+    ID_User: number;
+    Deviation_Reason: string;
+}
+
+export interface AuthUserInfo {
+    id_user: number;
+    roleId: number;
+    token: string;
 }
 
 export type Playlist = Array<Track>;

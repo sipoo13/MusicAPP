@@ -1,19 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Music } from "lucide-react";
 import { AuthContext } from "../context/AuthContext";
 import { User } from "../types/types";
 import { get_user } from "../api/requests";
+import { TrackContext } from "../context/AudioContext";
 
 export default function Nav() {
   const [user, setUser] = useState<User>();
-  const id = localStorage.getItem("userId");
   const navigate = useNavigate();
-  const { isAuth, setIsAuth, isRegistered, setIsRegistered } =
-    useContext(AuthContext);
+  const { isAuth, setIsAuth, setIsRegistered, authUser, setAuthUser } = useContext(AuthContext);
+  const {
+    setIsLiked,
+  } = useContext(TrackContext);
+  const roleId = authUser?.roleId.toString();
+  const id = authUser?.id_user.toString();
+  console.log(id);
 
   useEffect(() => {
-    if (id !== null) {
+    if (id !== undefined) {
       get_user(id).then((res) => {
         if (res.status === 200) {
           setUser(res.data);
@@ -24,13 +29,20 @@ export default function Nav() {
 
   const logout = () => {
     setIsAuth(false);
-    localStorage.removeItem("userId");
+    setIsRegistered(false);
+    setIsLiked(false);
+    setAuthUser(undefined);
+    navigate(`/`);
   };
 
   const handleProfileClick = () => {
-    const userId = localStorage.getItem("userId");
-    navigate(`/profile/${userId}`);
+    navigate(`/profile/${id}`);
   };
+
+  const handleRegClick = () => {
+    setIsRegistered(false);
+    navigate(`/reg`);
+  }
 
   return (
     <header className="bg-black">
@@ -41,12 +53,36 @@ export default function Nav() {
           </Link>
         </div>
         <div className="text-white">
-          <Link
-            to={`/my_music/${id}`}
-            className="hover:underline font-sans font-semibold text-sm"
-          >
-            Моя медиатека
-          </Link>
+          {roleId === "2" ? (
+            <div>
+              <Link
+                to={`/my_music/${id}`}
+                className="hover:underline font-sans font-semibold text-sm select-none"
+              >
+                Моя медиатека
+              </Link>
+              <Link
+                to={`/moderator`}
+                className="hover:underline font-sans font-semibold text-sm ml-4 select-none"
+              >
+                Панель модератора
+              </Link>
+            </div>
+          ) : isAuth ? (
+            <Link
+              to={`/my_music/${id}`}
+              className="hover:underline font-sans font-semibold text-sm select-none"
+            >
+              Моя медиатека
+            </Link>
+          ) : (
+            <Link
+              to={`/auth`}
+              className="hover:underline font-sans font-semibold text-sm select-none"
+            >
+              Моя медиатека
+            </Link>
+          )}
         </div>
         {isAuth ? (
           <div className="flex items-center">
@@ -63,15 +99,15 @@ export default function Nav() {
           <div className="text-white">
             <Link
               to="/auth"
-              className="hover:underline font-sans font-semibold text-sm mr-4"
+              className="hover:underline font-sans font-semibold text-sm mr-4 select-none"
             >
               Войти
             </Link>
-            <Link to="/reg" className="font-sans font-semibold text-sm">
-              <button className="bg-white hover:bg-[#e2e2e2] text-black font-bold py-2 px-4 rounded inline-flex items-center">
+              <button 
+              className="bg-white hover:bg-[#e2e2e2] text-black font-sans font-semibold text-sm py-2 px-4 rounded inline-flex items-center select-none"
+              onClick={handleRegClick}>
                 Зарегистрироваться
               </button>
-            </Link>
           </div>
         )}
       </nav>

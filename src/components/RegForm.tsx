@@ -6,15 +6,23 @@ import { AuthContext } from "../context/AuthContext";
 
 const RegForm = () => {
   const [alias, setAlias] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { isAuth, setIsAuth, isRegistered, setIsRegistered } =
+  const { isRegistered, setIsRegistered } =
     useContext(AuthContext);
 
   const handleRegistration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!login || !password || !alias) {
+      setError('Вы не заполнили все поля');
+      return;
+    }
+    else if(login.length < 3 || login.length > 30 || password.length < 3 || password.length > 30|| alias.length < 3 || alias.length > 30) {
+      setError('Длина полей должна быть не менее 3 и не более 30');
+      return;
+    }
+
     const userData: RegisterUser = {
       login: login,
       password: password,
@@ -43,12 +51,18 @@ const RegForm = () => {
 
   return (
     <div className="mt-12">
-      <h1 className="font-semibold text-center text-4xl text-white">
+      <h1 className="font-semibold text-center text-4xl text-white select-none">
         Регистрация
       </h1>
-      <p className="text-center my-2 font-semibold text-[#919496]">
-        Для регистрации введите логин, пароль и псевдоним
+      <p className="text-center my-2 font-semibold text-[#919496] select-none">
+        Для регистрации введите псевдоним, логин, пароль
       </p>
+      {error ? (
+        <p className="text-center my-2 font-semibold text-red-500 select-none">
+          {error}
+        </p>
+      ) : null}
+
       <form onSubmit={handleRegistration}>
         <p className="font-semibold mb-1 text-[#919496]">Псевдоним</p>
         <input

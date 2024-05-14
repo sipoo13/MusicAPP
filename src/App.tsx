@@ -3,11 +3,11 @@ import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import Nav from "./components/Nav";
 import FooterPlay from "./components/FooterPlay";
-import { AudioContextik } from "./context/AudioContext";
+import { TrackContext } from "./context/AudioContext";
 
 function App() {
   const { isPlaying, setIsPlaying, currentSong, setCurrentSong } =
-    useContext(AudioContextik);
+    useContext(TrackContext);
     const audioElem = useRef<HTMLAudioElement | null>(null);
 
 
